@@ -25,6 +25,29 @@ sap.ui.define([
                 fetch('https://services.odata.org/V3/Northwind/Northwind.svc/Products(1)?$format=json').then(Response => Response.json())
                     .then(data => console.log(data))
                     .catch(error => console.error("Failed to load data", error));
-            }
+            },
+            // promise in odata
+             _warehouseData: function () {
+                var data = this.returnData();
+                data.then(function (data) {
+                    var model = new JSONModel(data);
+                    this._displayModel.setProperty("/WarehouseSet", data.results)
+                }.bind(this)).catch(function (oError) {
+                    //some error
+                }.bind(this));
+                
+            },
+            returnData: function () {
+                return new Promise(function (resolve, reject) {
+                    this._warehouseDataModel.read("/WarehouseSet", {
+                        success: function (oData, oResponse) {
+                            resolve(oData)
+                        }.bind(this),
+                        error: function (error) {
+                            reject(error)
+                        }.bind(this)
+                    });
+                }.bind(this))
+            },
         });
     });
