@@ -10,6 +10,7 @@ sap.ui.define([
         return Controller.extend("com.sap.promise.promisefunction.controller.View1", {
             onInit: function () {
                 this._onPromise(this);
+                //added comments in branch
             },
             _onPromise: function (oEvent) {
                     // test
