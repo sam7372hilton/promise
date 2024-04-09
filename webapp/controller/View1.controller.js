@@ -12,7 +12,7 @@ sap.ui.define([
                 this._onPromise(this);
             },
             _onPromise: function (oEvent) {
-
+                    // test
             }
         });
     });
