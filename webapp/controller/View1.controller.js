@@ -9,7 +9,11 @@ sap.ui.define([
 
         return Controller.extend("com.sap.promise.promisefunction.controller.View1", {
             onInit: function () {
+                this._onPromise(this);
+            },
+            _onPromise: function (oEvent) {
 
             }
         });
     });
+SSS
