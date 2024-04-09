@@ -14,6 +14,7 @@ sap.ui.define([
                 //added comments in branchcss
             },
             _onPromise: function (oEvent) {
+                 // test
                 Promise.all([
                     fetch('https://services.odata.org/V3/Northwind/Northwind.svc/Products(1)?$format=json'),
                     fetch('https://services.odata.org/V3/Northwind/Northwind.svc/Products(2)?$format=json')
